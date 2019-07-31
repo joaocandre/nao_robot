@@ -9,7 +9,7 @@
 	<xacro:include filename="nao_torso.xacro"/>
 	<xacro:include filename="nao_arms.xacro"/>
 	<xacro:include filename="nao_sensors.xacro"/>
-	<xacro:include filename="nao_fingers.xacro"/>
+	<!-- <xacro:include filename="nao_fingers.xacro"/> -->
 	<xacro:include filename="naoGazebo.xacro"/>
 	<xacro:include filename="naoTransmission.xacro"/>
 </robot>
