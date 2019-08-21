@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- MACROS FOR DISABLE LINKS -->
 	<xacro:property name="PI" value="3.14159265359" />
-    <xacro:macro name="DisabledLinks" params="side side_small">
+<!--     <xacro:macro name="DisabledLinks" params="side side_small">
         <plugin name="${side}Finger11_link" filename="libroboticsgroup_gazebo_disable_link_plugin.so">
             <link>${side}Finger11_link</link>
         </plugin>
@@ -30,10 +30,10 @@
         <plugin name="${side_small}_gripper" filename="libroboticsgroup_gazebo_disable_link_plugin.so">
             <link>${side_small}_gripper</link>
         </plugin>
-    </xacro:macro>
+    </xacro:macro> -->
     <!-- MACROS FOR MIMIC JOINTS -->
     <!-- Fingers -->
-    <xacro:macro name="FingerMimics" params="side num">
+<!--     <xacro:macro name="FingerMimics" params="side num">
         <plugin name="mimic_${side}Finger${num}1" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
             <joint>${side}Hand</joint>
             <mimicJoint>${side}Finger${num}1</mimicJoint>
@@ -52,9 +52,9 @@
             <multiplier>-${PI/4}</multiplier>
             <offset>${PI/4}</offset>
         </plugin>
-    </xacro:macro>
+    </xacro:macro> -->
     <!-- Thumbs -->
-    <xacro:macro name="ThumbMimics" params="side">
+<!--     <xacro:macro name="ThumbMimics" params="side">
         <plugin name="${side}Thumb1" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
             <joint>${side}Hand</joint>
             <mimicJoint>${side}Thumb1</mimicJoint>
@@ -67,7 +67,7 @@
             <multiplier>-${PI/4}</multiplier>
             <offset>${PI/4}</offset>
         </plugin>
-    </xacro:macro>
+    </xacro:macro> -->
     <!-- GAZEBO ROS CONTROL AND IMU PLUGIN -->
 
     <gazebo>
@@ -114,7 +114,7 @@
             <offset>0.0</offset>
         </plugin> -->
 
-        <xacro:FingerMimics side="L" num="1"/>
+<!--         <xacro:FingerMimics side="L" num="1"/>
         <xacro:FingerMimics side="L" num="2"/>
         <xacro:FingerMimics side="R" num="1"/>
         <xacro:FingerMimics side="R" num="2"/>
@@ -123,7 +123,7 @@
         <xacro:ThumbMimics side="R"/>
 
         <xacro:DisabledLinks side="L" side_small="l"/>
-        <xacro:DisabledLinks side="R" side_small="r"/>
+        <xacro:DisabledLinks side="R" side_small="r"/> -->
     </gazebo>
     <!-- END OF GAZEBO ROS CONTROL PLUGIN -->
     <!-- GAZEBO MATERIALS -->
@@ -249,7 +249,7 @@
         <turnGravityOff>false</turnGravityOff>
     </gazebo>
 -->
-    <gazebo reference="LFinger11_link">
+<!--     <gazebo reference="LFinger11_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
@@ -296,7 +296,7 @@
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
         <turnGravityOff>true</turnGravityOff>
-    </gazebo>
+    </gazebo> -->
 
     <gazebo reference="LPelvis">
         <mu1>0.5</mu1>
@@ -377,7 +377,7 @@
     <minDepth>0.003</minDepth>
   </gazebo>
 
-    <gazebo reference="RFinger11_link">
+<!--     <gazebo reference="RFinger11_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
@@ -424,7 +424,7 @@
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
         <turnGravityOff>true</turnGravityOff>
-    </gazebo>
+    </gazebo> -->
 <!--
 
         RGB CAMERAS: Working
@@ -578,19 +578,19 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
 </gazebo>
 -->
 <gazebo reference="RFsrFL_frame">
-  <mu1>0.5</mu1>
+<!--   <mu1>0.5</mu1>
   <mu2>0.5</mu2>
   <selfCollide>false</selfCollide>
-  <turnGravityOff>false</turnGravityOff>
-  <fdir1>1 0 0</fdir1>
+  <turnGravityOff>false</turnGravityOff> -->
+<!--   <fdir1>1 0 0</fdir1>
   <maxVel>0.1</maxVel>
-  <minDepth>0.003</minDepth>
+  <minDepth>0.003</minDepth> -->
   <sensor name="RFsrFL" type="contact">
     <always_on>1</always_on>
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>RFsrFL_frame_collision</collision>
+      <collision>r_ankle_fixed_joint_lump__RFsrFL_frame_collision_1</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFL">
       <robotNamespace>nao_robot</robotNamespace>
@@ -614,7 +614,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>RFsrFR_frame_collision</collision>
+      <collision>r_ankle_fixed_joint_lump__RFsrFR_frame_collision_2</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFR">
       <robotNamespace>nao_robot</robotNamespace>
@@ -638,7 +638,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>RFsrRL_frame_collision</collision>
+      <collision>r_ankle_fixed_joint_lump__RFsrRL_frame_collision_3</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRL">
       <robotNamespace>nao_robot</robotNamespace>
@@ -662,7 +662,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>RFsrRR_frame_collision</collision>
+      <collision>r_ankle_fixed_joint_lump__RFsrRR_frame_collision_4</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRR">
       <robotNamespace>nao_robot</robotNamespace>
@@ -686,7 +686,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>LFsrFL_frame_collision</collision>
+      <collision>l_ankle_fixed_joint_lump__LFsrFL_frame_collision_1</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_LFsrFL">
       <robotNamespace>nao_robot</robotNamespace>
@@ -706,14 +706,15 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
   <maxVel>0.1</maxVel>
   <minDepth>0.003</minDepth>
   <sensor name="LFsrFR" type="contact">
-    <always_on>1</always_on>
+    <always_on>true</always_on>
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>LFsrFR_frame_collision</collision>
+      <collision>l_ankle_fixed_joint_lump__LFsrFR_frame_collision_2</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
       <robotNamespace>nao_robot</robotNamespace>
+      <update_rate>20</update_rate>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/LFoot/FrontRight</bumperTopicName>
       <frameName>LFsrFR_frame</frameName>
@@ -734,7 +735,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>LFsrRL_frame_collision</collision>
+      <collision>l_ankle_fixed_joint_lump__LFsrRL_frame_collision_3</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
       <robotNamespace>nao_robot</robotNamespace>
@@ -758,7 +759,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
     <update_rate>20</update_rate>
     <visualize>false</visualize>
     <contact>
-      <collision>LFsrRR_frame_collision</collision>
+      <collision>l_ankle_fixed_joint_lump__LFsrRR_frame_collision_4</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
       <robotNamespace>nao_robot</robotNamespace>
