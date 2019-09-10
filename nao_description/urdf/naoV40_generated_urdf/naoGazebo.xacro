@@ -77,11 +77,13 @@
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
 
-<!--        <plugin filename="libgazebo_ros_imu.so" name="gazebo_ros_imu_controller">
-            <robotNamespace>/nao_dcm</robotNamespace>
-            <topicName>imu_data</topicName>
-            <bodyName>imu</bodyName>
-            <frameId>ImuAccelerometer_frame</frameId>
+        <!-- ROS Imu Sensor -->
+        <!-- Measurements are computed by the ROS plugin, not by Gazebo -->
+        <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+            <robotNamespace>/nao</robotNamespace>
+            <topicName>imu</topicName>
+            <bodyName>ImuTorsoAccelerometer_frame</bodyName>
+            <!-- <frameId>ImuTorsoAccelerometer_frame</frameId> -->
             <gaussianNoise>2.89e-08</gaussianNoise>
             <accelGaussianNoise>2.89e-08 2.89e-08 2.89e-08</accelGaussianNoise>
             <rateGaussianNoise>2.89e-08 2.89e-08 2.89e-08</rateGaussianNoise>
@@ -91,10 +93,16 @@
             <updateRate>30.0</updateRate>
             <alwaysOn>true</alwaysOn>
         </plugin>
--->
-<!--         <plugin name="gazebo_ros_imu_controller" filename="${imu_plugin}">
-            <robotNamespace>/nao_dcm</robotNamespace>
-            <topicName>imu_data</topicName>
+
+        <!-- Gazebo IMU Sensor -->
+        <!-- main differences from IMU (GazeboRosIMU) are:
+         - inheritance from SensorPlugin instead of ModelPlugin,
+         - measurements are given by gazebo ImuSensor instead of being computed by the ros plugin,
+         - gravity is included in inertial measurements. -->
+        <!-- <plugin name="gazebo_ros_imu_controller" filename="${imu_plugin}"> -->
+<!--    <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu_sensor.so">
+            <robotNamespace>/nao</robotNamespace>
+            <topicName>imu</topicName>
             <bodyName>imu</bodyName>
             <frameId>imu</frameId>
             <gaussianNoise>2.89e-08</gaussianNoise>
@@ -106,6 +114,18 @@
             <updateRate>30.0</updateRate>
             <alwaysOn>true</alwaysOn>
         </plugin> -->
+
+        <!-- with hector imu library as used in Darwin model -->
+<!--         <plugin filename="libhector_gazebo_ros_imu.so" name="gazebo_ros_imu">
+          <bodyName>MP_BODY</bodyName>
+          <updateRate>50</updateRate>
+          <serviceName>/darwin/imu_service</serviceName>
+          <topicName>/darwin/imu</topicName>
+          <gaussianNoise>0</gaussianNoise>
+          <xyzOffset>0 0 0</xyzOffset>
+          <rpyOffset>0 0 -0.703220730592</rpyOffset>
+        </plugin> -->
+
         <!-- Mimic joints through plugin develop by costashatz based on implementation by Goncalo Cabrita -->
 <!--         <plugin name="mimic_hipyawpitch" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
             <joint>LHipYawPitch</joint>
@@ -451,7 +471,7 @@
             </noise>
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-            <robotNamespace>nao_robot</robotNamespace>
+            <robotNamespace>nao</robotNamespace>
             <alwaysOn>true</alwaysOn>
             <updateRate>5.0</updateRate>
             <cameraName>camera/top</cameraName>
@@ -489,7 +509,7 @@
             </noise>
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-            <robotNamespace>/nao_robot</robotNamespace>
+            <robotNamespace>/nao</robotNamespace>
             <alwaysOn>true</alwaysOn>
             <updateRate>5.0</updateRate>
             <cameraName>camera_bottom</cameraName>
@@ -593,7 +613,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>r_ankle_fixed_joint_lump__RFsrFL_frame_collision_1</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFL">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/RFoot/FrontLeft</bumperTopicName>
       <frameName>RFsrFL_frame</frameName>
@@ -617,7 +637,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>r_ankle_fixed_joint_lump__RFsrFR_frame_collision_2</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFR">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/RFoot/FrontRight</bumperTopicName>
       <frameName>RFsrFR_frame</frameName>
@@ -641,7 +661,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>r_ankle_fixed_joint_lump__RFsrRL_frame_collision_3</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRL">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/RFoot/RearLeft</bumperTopicName>
       <frameName>RFsrRL_frame</frameName>
@@ -665,7 +685,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>r_ankle_fixed_joint_lump__RFsrRR_frame_collision_4</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRR">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/RFoot/RearRight</bumperTopicName>
       <frameName>RFsrRR_frame</frameName>
@@ -689,7 +709,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>l_ankle_fixed_joint_lump__LFsrFL_frame_collision_1</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_LFsrFL">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/LFoot/FrontLeft</bumperTopicName>
       <frameName>LFsrFL_frame</frameName>
@@ -713,7 +733,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>l_ankle_fixed_joint_lump__LFsrFR_frame_collision_2</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <update_rate>20</update_rate>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/LFoot/FrontRight</bumperTopicName>
@@ -738,7 +758,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>l_ankle_fixed_joint_lump__LFsrRL_frame_collision_3</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/LFoot/RearLeft</bumperTopicName>
       <frameName>LFsrRL_frame</frameName>
@@ -762,7 +782,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       <collision>l_ankle_fixed_joint_lump__LFsrRR_frame_collision_4</collision>
     </contact>
     <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <bumperTopicName>FSR/LFoot/RearRight</bumperTopicName>
       <frameName>LFsrRR_frame</frameName>
@@ -811,7 +831,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       </range>
     </ray>
     <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <gaussianNoise>0.05</gaussianNoise>
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
@@ -853,7 +873,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
       </range>
     </ray>
     <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-      <robotNamespace>nao_robot</robotNamespace>
+      <robotNamespace>nao</robotNamespace>
       <gaussianNoise>0.05</gaussianNoise>
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
