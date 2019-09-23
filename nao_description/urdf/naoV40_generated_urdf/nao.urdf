@@ -1454,7 +1454,7 @@
         </noise>
       </camera>
       <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <updateRate>5.0</updateRate>
         <cameraName>camera/top</cameraName>
@@ -1591,7 +1591,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>r_ankle_fixed_joint_lump__RFsrFL_frame_collision_1</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFL">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/RFoot/FrontLeft</bumperTopicName>
         <frameName>RFsrFL_frame</frameName>
@@ -1614,7 +1614,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>r_ankle_fixed_joint_lump__RFsrFR_frame_collision_2</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrFR">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/RFoot/FrontRight</bumperTopicName>
         <frameName>RFsrFR_frame</frameName>
@@ -1637,7 +1637,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>r_ankle_fixed_joint_lump__RFsrRL_frame_collision_3</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRL">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/RFoot/RearLeft</bumperTopicName>
         <frameName>RFsrRL_frame</frameName>
@@ -1660,7 +1660,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>r_ankle_fixed_joint_lump__RFsrRR_frame_collision_4</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_RFsrRR">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/RFoot/RearRight</bumperTopicName>
         <frameName>RFsrRR_frame</frameName>
@@ -1683,7 +1683,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>l_ankle_fixed_joint_lump__LFsrFL_frame_collision_1</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_LFsrFL">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/LFoot/FrontLeft</bumperTopicName>
         <frameName>LFsrFL_frame</frameName>
@@ -1706,7 +1706,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>l_ankle_fixed_joint_lump__LFsrFR_frame_collision_2</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <update_rate>20</update_rate>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/LFoot/FrontRight</bumperTopicName>
@@ -1730,7 +1730,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>l_ankle_fixed_joint_lump__LFsrRL_frame_collision_3</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/LFoot/RearLeft</bumperTopicName>
         <frameName>LFsrRL_frame</frameName>
@@ -1753,7 +1753,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         <collision>l_ankle_fixed_joint_lump__LFsrRR_frame_collision_4</collision>
       </contact>
       <plugin filename="libgazebo_ros_bumper.so" name="gazebo_nao_ros_bumper">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <bumperTopicName>FSR/LFoot/RearRight</bumperTopicName>
         <frameName>LFsrRR_frame</frameName>
@@ -1798,7 +1798,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         </range>
       </ray>
       <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <gaussianNoise>0.05</gaussianNoise>
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
@@ -1839,7 +1839,7 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
         </range>
       </ray>
       <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-        <robotNamespace>nao_robot</robotNamespace>
+        <robotNamespace>nao</robotNamespace>
         <gaussianNoise>0.05</gaussianNoise>
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
