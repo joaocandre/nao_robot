@@ -90,7 +90,7 @@
             <headingGaussianNoise>2.89e-08 2.89e-08 2.89e-08</headingGaussianNoise>
             <xyzOffsets>0 0 0</xyzOffsets>
             <rpyOffsets>0 0 0</rpyOffsets>
-            <updateRate>30.0</updateRate>
+            <updateRate>0.0</updateRate>
             <alwaysOn>true</alwaysOn>
         </plugin>
 
