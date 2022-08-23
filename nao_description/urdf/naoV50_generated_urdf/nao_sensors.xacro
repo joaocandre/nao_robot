@@ -5,7 +5,7 @@
 <robot name="NaoH25V50" xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<link name="LFootBumperRight_frame"/>
 	<joint name="LFoot/Bumper/Right_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFootBumperRight_frame"/>
 		<origin rpy="0 0 0" xyz="0.0876 -0.014 -0.0353"/>
 		<axis xyz="0 0 0"/>
@@ -23,7 +23,7 @@
 		</inertial>
 	</link>
 	<joint name="RFoot/FSR/RearLeft_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFsrRL_frame"/>
 		<origin rpy="0 0 0" xyz="-0.03025 0.0191 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -47,7 +47,7 @@
 		</inertial>
 	</link>
 	<joint name="RFoot/FSR/RearRight_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFsrRR_frame"/>
 		<origin rpy="0 0 0" xyz="-0.02965 -0.0299 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -65,7 +65,7 @@
 		</inertial>
 	</link>
 	<joint name="LFoot/FSR/FrontRight_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFsrFR_frame"/>
 		<origin rpy="0 0 0" xyz="0.07025 -0.0231 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -79,7 +79,7 @@
 	</joint>
 	<link name="RFootBumperRight_frame"/>
 	<joint name="RFoot/Bumper/Right_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFootBumperRight_frame"/>
 		<origin rpy="0 0 0" xyz="0.0876 -0.019 -0.0353"/>
 		<axis xyz="0 0 0"/>
@@ -97,7 +97,7 @@
 		</inertial>
 	</link>
 	<joint name="RFoot/FSR/FrontRight_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFsrFR_frame"/>
 		<origin rpy="0 0 0" xyz="0.07025 -0.0299 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -115,7 +115,7 @@
 		</inertial>
 	</link>
 	<joint name="LFoot/FSR/RearRight_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFsrRR_frame"/>
 		<origin rpy="0 0 0" xyz="-0.02965 -0.0191 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -136,7 +136,7 @@
 	</joint>
 	<link name="RFootBumperLeft_frame"/>
 	<joint name="RFoot/Bumper/Left_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFootBumperLeft_frame"/>
 		<origin rpy="0 0 0" xyz="0.0876 0.014 -0.0353"/>
 		<axis xyz="0 0 0"/>
@@ -175,7 +175,7 @@
 		</inertial>
 	</link>
 	<joint name="RFoot/FSR/FrontLeft_sensor_fixedjoint" type="fixed">
-		<parent link="r_ankle"/>
+		<parent link="RFoot"/>
 		<child link="RFsrFL_frame"/>
 		<origin rpy="0 0 0" xyz="0.07025 0.0231 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -200,7 +200,7 @@
 		</inertial>
 	</link>
 	<joint name="LFoot/FSR/FrontLeft_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFsrFL_frame"/>
 		<origin rpy="0 0 0" xyz="0.07025 0.0299 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -218,7 +218,7 @@
 		</inertial>
 	</link>
 	<joint name="LFoot/FSR/RearLeft_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFsrRL_frame"/>
 		<origin rpy="0 0 0" xyz="-0.03025 0.0299 -0.04511"/>
 		<axis xyz="0 0 0"/>
@@ -301,7 +301,7 @@
 	</joint>
 	<link name="LFootBumperLeft_frame"/>
 	<joint name="LFoot/Bumper/Left_sensor_fixedjoint" type="fixed">
-		<parent link="l_ankle"/>
+		<parent link="LFoot"/>
 		<child link="LFootBumperLeft_frame"/>
 		<origin rpy="0 0 0" xyz="0.0876 0.019 -0.0353"/>
 		<axis xyz="0 0 0"/>

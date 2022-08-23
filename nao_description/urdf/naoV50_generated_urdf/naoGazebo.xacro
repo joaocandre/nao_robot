@@ -322,13 +322,13 @@
         <selfCollide>false</selfCollide>
         <turnGravityOff>false</turnGravityOff>
     </gazebo>
- <gazebo reference="LAnklePitch">
+ <gazebo reference="LAnkle">
     <mu1>0.5</mu1>
     <mu2>0.5</mu2>
     <selfCollide>false</selfCollide>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
-  <gazebo reference="l_ankle">
+  <gazebo reference="LFoot">
     <mu1>0.5</mu1>
     <mu2>0.5</mu2>
     <selfCollide>false</selfCollide>
@@ -361,13 +361,13 @@
       <selfCollide>false</selfCollide>
       <turnGravityOff>false</turnGravityOff>
   </gazebo>
- <gazebo reference="RAnklePitch">
+ <gazebo reference="RAnkle">
     <mu1>0.5</mu1>
     <mu2>0.5</mu2>
     <selfCollide>false</selfCollide>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
-  <gazebo reference="r_ankle">
+  <gazebo reference="RFoot">
     <mu1>0.5</mu1>
     <mu2>0.5</mu2>
     <selfCollide>false</selfCollide>

@@ -655,7 +655,7 @@
 			</collision>
 		</xacro:if>
 	</xacro:macro>
-	<xacro:macro name="insert_visu_LAnklePitch">
+	<xacro:macro name="insert_visu_LAnkle">
 		<xacro:unless value="${meshes_installed}"/>
 		<xacro:if value="${meshes_installed}">
 			<visual>
@@ -689,7 +689,7 @@
 			</collision>
 		</xacro:if>
 	</xacro:macro>
-	<xacro:macro name="insert_visu_RAnklePitch">
+	<xacro:macro name="insert_visu_RAnkle">
 		<xacro:unless value="${meshes_installed}"/>
 		<xacro:if value="${meshes_installed}">
 			<visual>
@@ -737,7 +737,7 @@
 			</collision>
 		</xacro:if>
 	</xacro:macro>
-	<xacro:macro name="insert_visu_r_ankle">
+	<xacro:macro name="insert_visu_RFoot">
 		<xacro:unless value="${meshes_installed}">
 			<visual>
 				<geometry>
@@ -768,7 +768,7 @@
 			</collision>
 		</xacro:if>
 	</xacro:macro>
-	<xacro:macro name="insert_visu_l_ankle">
+	<xacro:macro name="insert_visu_LFoot">
 		<xacro:unless value="${meshes_installed}">
 			<visual>
 				<geometry>
