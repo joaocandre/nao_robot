@@ -598,13 +598,13 @@ libgazebo_ros_bumper.so bugged right now, waiting for new release
 </gazebo>
 -->
 <gazebo reference="RFsrFL_frame">
-<!--   <mu1>0.5</mu1>
+  <mu1>0.5</mu1>
   <mu2>0.5</mu2>
   <selfCollide>false</selfCollide>
-  <turnGravityOff>false</turnGravityOff> -->
-<!--   <fdir1>1 0 0</fdir1>
+  <turnGravityOff>false</turnGravityOff>
+  <fdir1>1 0 0</fdir1>
   <maxVel>0.1</maxVel>
-  <minDepth>0.003</minDepth> -->
+  <minDepth>0.003</minDepth>
   <sensor name="RFsrFL" type="contact">
     <always_on>1</always_on>
     <update_rate>20</update_rate>

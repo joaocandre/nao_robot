@@ -3,13 +3,18 @@
 <!-- interface type changed from PositionJointInterface to hardware_interface/EffortJointInterface to conform with ROS Noetic and per instructions in https://answers.ros.org/question/285977/could-not-find-resource-in-hardware_interfaceeffortjointinterface/ -->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:property name="speed_red_type1A" value="201.3" />
-	<xacro:property name="speed_red_type1B" value="130.85" />
-	<xacro:property name="speed_red_type2A" value="50.61" />
-	<xacro:property name="speed_red_type2B" value="36.24" />
-	<xacro:property name="speed_red_type3A" value="150.27" />
-	<xacro:property name="speed_red_type3B" value="173.22" />
-
+	<!-- <xacro:property name="speed_red_type1A" value="1.0" /> -->
+	<!-- <xacro:property name="speed_red_type1B" value="1.0" /> -->
+	<!-- <xacro:property name="speed_red_type2A" value="1.0" /> -->
+	<!-- <xacro:property name="speed_red_type2B" value="1.0" /> -->
+	<!-- <xacro:property name="speed_red_type3A" value="1.0" /> -->
+	<!-- <xacro:property name="speed_red_type3B" value="1.0" /> -->
+    <xacro:property name="speed_red_type1A" value="201.3" />
+    <xacro:property name="speed_red_type1B" value="130.85" />
+    <xacro:property name="speed_red_type2A" value="50.61" />
+    <xacro:property name="speed_red_type2B" value="36.24" />
+    <xacro:property name="speed_red_type3A" value="150.27" />
+    <xacro:property name="speed_red_type3B" value="173.22" />
     <!-- HEAD -->
 	<transmission name="HeadYaw_Transmission">
 		<type>transmission_interface/SimpleTransmission</type>
@@ -56,48 +61,7 @@
 				<mechanicalReduction>${speed_red_type3B}</mechanicalReduction>
 			</actuator>
 		</transmission>
-		<transmission name="${side}ElbowYaw_Transmission">
-			<type>transmission_interface/SimpleTransmission</type>
-			<joint name="${side}ElbowYaw">
-              <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            </joint>
-			<actuator name="${side}ElbowYaw_Motor">
-				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-				<mechanicalReduction>${speed_red_type3A}</mechanicalReduction>
-			</actuator>
-		</transmission>
-	    <transmission name="${side}ElbowRoll_Transmission">
-			<type>transmission_interface/SimpleTransmission</type>
-			<joint name="${side}ElbowRoll">
-    			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            </joint>
-			<actuator name="${side}ElbowRoll_Motor">
-				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-				<mechanicalReduction>${speed_red_type3B}</mechanicalReduction>
-			</actuator>
-		</transmission>
-
-		<transmission name="${side}WristYaw_Transmission">
-			<type>transmission_interface/SimpleTransmission</type>
-			<joint name="${side}WristYaw">
-              <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            </joint>
-			<actuator name="${side}WristYaw_Motor">
-				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-				<mechanicalReduction>${speed_red_type2A}</mechanicalReduction>
-			</actuator>
-		</transmission>
-		<transmission name="${side}Hand_Transmission">
-			<type>transmission_interface/SimpleTransmission</type>
-			<joint name="${side}Hand">
-  			  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            </joint>
-			<actuator name="${side}Hand_Motor">
-				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-				<mechanicalReduction>${speed_red_type2B}</mechanicalReduction>
-			</actuator>
-		</transmission>
-
+        <!-- (...) transmission/hardware interface for left elbow, wrist and hand joints removed (...) -->
 		</xacro:macro>
 	<xacro:arm_joints_transmissions side="L"/>
 	<xacro:arm_joints_transmissions side="R"/>

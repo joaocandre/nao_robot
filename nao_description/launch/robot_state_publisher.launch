@@ -1,12 +1,17 @@
+<?xml version="1.0"?>
 <launch>
-  <arg name="version" default="V40" />
-  <include file="$(find nao_description)/launch/upload_nao.launch" >
-    <arg name="version" value="$(arg version)" />
-  </include>
+    <!-- robot namespace, where description (URDF map) is defined and joint states are published to -->
+    <arg name="robot_namespace" default=""/>
+    <!-- wether to compute & publish base transform -->
+    <arg name="with_base_footprint" default="false"/>
 
   <!-- complete robot model with base_footprint -->
-  <node pkg="nao_description" type="base_footprint" name="base_footprint" />
+  <node pkg="nao_description" type="base_footprint" name="base_footprint" if="$(arg with_base_footprint)" />
 
-  <!-- additionally load the robot state publisher -->
-  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" />
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <!-- @todo move to separate launch file, taking prefix as argument? or edit [nao_description]/robot_state_publisher.launch? -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap from="/joint_states" to="$(arg robot_namespace)/joint_states" />
+        <remap from="robot_description" to="$(arg robot_namespace)/robot_description" />
+    </node>
 </launch>

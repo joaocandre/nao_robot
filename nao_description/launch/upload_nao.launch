@@ -1,4 +1,11 @@
+<?xml version="1.0"?>
+<!-- Load Aldebaran-NAO robot description into ROS parameter server-->
 <launch>
-  <arg name="version" default="V40" />
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find nao_description)/urdf/nao$(arg version)_generated_urdf/nao_robot.xacro" />
+    <!-- model version -->
+    <arg name="version" default="V50" />
+    <!-- model variant (handless *only available* for V50 currently) -->
+    <arg name="handless" default="false" />
+    <!-- @note 'inorder' is default on ROS Noetic, no need for argument -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find nao_description)/urdf/nao$(arg version)_generated_urdf/nao_robot.xacro" unless="$(arg handless)"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(find nao_description)/urdf/nao$(arg version)_handless_generated_urdf/nao_robot.xacro" if="$(arg handless)"/>
 </launch>
